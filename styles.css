@@ -1,0 +1,841 @@
+/* ==========================================================================
+   ATELIER PRATYAK — 27TH BIRTHDAY RECIPIENT PRESENTATION
+   Aesthetic: Minimal Luxury + Soft Romance + Modern Editorial Stationery
+   ========================================================================== */
+
+:root {
+  /* Curated Warm Ivory & Forest Sage Harmony */
+  --bg-artboard: #FAF7F2;
+  --bg-arch: #EDF1EC;
+  --border-arch: rgba(74, 95, 78, 0.2);
+  --border-outer: rgba(50, 42, 38, 0.22);
+  --border-inner: rgba(50, 42, 38, 0.12);
+  --border-corner: #C5A059;
+  
+  --color-eyebrow: #4A5F4E;
+  --color-greeting: #423B38;
+  --color-name: #1A1716;
+  --color-divider: #C5A059;
+  --color-heart: #7D1D2C;
+  --color-subline: #48403D;
+  --color-stars: #C5A059;
+  --color-footer: #8A817C;
+  --color-lines: rgba(70, 60, 50, 0.08);
+
+  /* Typography Stacks */
+  --font-serif-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-serif-playfair: 'Playfair Display', Georgia, serif;
+  --font-serif-cinzel: 'Cinzel', serif;
+  --font-sans-ui: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans-editorial: 'Montserrat', sans-serif;
+
+  /* Card Proportions */
+  --card-width: 680px;
+  --card-height: 482px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 40%, #1c1815 0%, #0d0c0b 100%);
+  color: #FAF7F2;
+  font-family: var(--font-serif-cormorant);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   CELEBRATION CONFETTI CANVAS
+   -------------------------------------------------------------------------- */
+
+.celebration-confetti {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* --------------------------------------------------------------------------
+   PRESENTATION CONTAINER & HEADER
+   -------------------------------------------------------------------------- */
+
+.presentation-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.recipient-gift-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 22px;
+  animation: fadeInDown 0.8s ease;
+  z-index: 10;
+}
+
+.gift-eyebrow {
+  font-family: var(--font-serif-cinzel);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #C5A059;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.gift-title {
+  font-family: var(--font-serif-playfair);
+  font-size: clamp(24px, 4.5vw, 36px);
+  font-weight: 600;
+  font-style: italic;
+  color: #FAF7F2;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  margin-bottom: 5px;
+}
+
+.gift-subtitle {
+  font-family: var(--font-serif-cormorant);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: rgba(250, 247, 242, 0.75);
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   3D INTERACTIVE FLIPCARD PHYSICS
+   -------------------------------------------------------------------------- */
+
+.card-3d-scene {
+  perspective: 2600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.flip-hint-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(24, 26, 32, 0.85);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-family: var(--font-sans-ui);
+  color: #C5A059;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  user-select: none;
+}
+
+.flip-hint-badge:hover {
+  background: rgba(197, 160, 89, 0.15);
+  border-color: #C5A059;
+  transform: translateY(-2px);
+}
+
+.hint-sparkle {
+  font-size: 14px;
+}
+
+.hint-key {
+  font-size: 10px;
+  opacity: 0.6;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.card-desk-surface {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transform-origin: center center;
+}
+
+/* The Folded Book Container */
+.card-3d-book {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* When Open, book shifts to center both facing pages */
+.card-3d-book.open {
+  transform: translateX(calc(var(--card-width) / 2));
+}
+
+/* Inside Left Page (Facing Inside Message) — Shows Ornate Theyyam Performer */
+.card-book-inside-left {
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--card-width));
+  width: var(--card-width);
+  height: var(--card-height);
+  background-color: var(--bg-artboard);
+  box-shadow: -15px 25px 50px rgba(0, 0, 0, 0.45);
+  border-radius: 3px 0 0 3px;
+  overflow: hidden;
+  display: none;
+  z-index: 1;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Inside Right Page (Page 2 Message) */
+.card-book-inside-right {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-artboard);
+  box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.45);
+  border-radius: 0 3px 3px 0;
+  overflow: hidden;
+  z-index: 2;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Eliminate 3D passthrough and bounding box expansion when card is closed */
+.card-3d-book:not(.open) .card-book-inside-right {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.card-3d-book:not(.open) .card-book-inside-left {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.card-3d-book.open .card-book-inside-right {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.card-3d-book.open .card-book-inside-left {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Front Flap (Swings open 180 degrees) */
+.card-book-front-flap {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 10;
+  border-radius: 3px;
+  background-color: var(--bg-artboard);
+}
+
+.card-3d-book:not(.open) .card-book-front-flap {
+  transform: translateZ(2px);
+}
+
+.card-3d-book.open .card-book-front-flap {
+  transform: rotateY(-180deg) translateZ(2px);
+}
+
+/* Front Face (Cover) */
+.front-face {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-artboard);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  transform: translateZ(1px);
+}
+
+/* Back Face of the front cover (Back side of Page 1) */
+.back-face {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-artboard);
+  transform: rotateY(180deg) translateZ(1px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: inset 20px 0 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Center Fold Spine Shadow */
+.card-book-inside-right::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background: linear-gradient(to right, rgba(0,0,0,0.18), transparent);
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED STATIONERY ARTBOARD CONTENT & BORDERS
+   -------------------------------------------------------------------------- */
+
+.card-texture-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.border-frame-outer {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid var(--border-outer);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.border-frame-inner {
+  position: absolute;
+  inset: 4px;
+  border: 0.5px solid var(--border-inner);
+  pointer-events: none;
+}
+
+.corner-flourish {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--border-corner);
+  background: var(--border-corner);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.corner-flourish.tl { top: -1px; left: -1px; }
+.corner-flourish.tr { top: -1px; left: calc(100% + 1px); }
+.corner-flourish.bl { top: calc(100% + 1px); left: -1px; }
+.corner-flourish.br { top: calc(100% + 1px); left: calc(100% + 1px); }
+
+/* --------------------------------------------------------------------------
+   PAGE 1 (COVER) LAYOUT
+   -------------------------------------------------------------------------- */
+
+.cover-content-layout {
+  position: absolute;
+  inset: 26px;
+  display: flex;
+  z-index: 10;
+}
+
+.cover-text-column {
+  flex: 1.15;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 15px 15px 25px;
+}
+
+/* "27" Numbered Balloon Doodle in Upper Right Corner */
+.balloon-doodle-container {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  z-index: 30;
+  transform: rotate(6deg);
+  filter: drop-shadow(0 6px 14px rgba(35, 30, 25, 0.15));
+  animation: floatDoodle 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatDoodle {
+  0% { transform: rotate(6deg) translateY(0px); }
+  100% { transform: rotate(9deg) translateY(-5px); }
+}
+
+.eyebrow-tag {
+  font-family: var(--font-sans-editorial);
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+  margin-bottom: 16px;
+}
+
+.main-title-block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.greeting-prefix {
+  font-family: var(--font-serif-cormorant);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-greeting);
+  margin-bottom: 2px;
+}
+
+.focal-name {
+  font-family: var(--font-serif-cormorant);
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-name);
+  line-height: 1.05;
+}
+
+.romantic-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 16px 0;
+  max-width: 200px;
+}
+
+.rule-line {
+  flex: 1;
+  height: 0.75px;
+  background-color: var(--color-divider);
+  opacity: 0.75;
+}
+
+.heart-symbol {
+  color: var(--color-heart);
+  font-size: 11px;
+}
+
+.supporting-line {
+  font-family: var(--font-serif-cormorant);
+  font-style: italic;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-subline);
+  letter-spacing: 0.02em;
+  max-width: 260px;
+  margin-bottom: 14px;
+}
+
+.celestial-detail {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-stars);
+  font-size: 9px;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.star-accent.small {
+  font-size: 7px;
+}
+
+.cover-footer-note {
+  font-family: var(--font-sans-editorial);
+  font-size: 6.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-footer);
+}
+
+/* Visual Column & Arch */
+.cover-visual-column {
+  flex: 0.95;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.editorial-arch {
+  position: absolute;
+  width: 195px;
+  height: 345px;
+  background: var(--bg-arch);
+  border: 1px solid var(--border-arch);
+  border-radius: 100px 100px 16px 16px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.sticker-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker-img {
+  max-height: 380px;
+  max-width: 240px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(30, 25, 20, 0.12));
+}
+
+.sticker-caption {
+  position: absolute;
+  bottom: 6px;
+  font-family: var(--font-sans-editorial);
+  font-size: 6.5px;
+  letter-spacing: 0.32em;
+  color: var(--color-footer);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   PAGE 2 (INSIDE RIGHT LETTER) LAYOUT
+   -------------------------------------------------------------------------- */
+
+.message-content-layout {
+  position: absolute;
+  inset: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+  padding: 16px 26px 12px 26px;
+}
+
+.message-header-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.message-heading {
+  font-family: var(--font-serif-cormorant);
+  font-size: 15.5px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-greeting);
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.flourish-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 160px;
+}
+
+.stationery-writing-area {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 6px 0;
+  padding: 4px 6px;
+}
+
+.stationery-lines-faint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 8px 0;
+}
+
+.paper-line {
+  width: 100%;
+  height: 0.5px;
+  background-color: var(--color-lines);
+}
+
+.typed-letter-content {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-serif-cormorant);
+  font-style: italic;
+  font-size: 13.2px;
+  line-height: 25.5px;
+  color: #2D2522;
+  letter-spacing: 0.015em;
+  text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.02);
+}
+
+.message-footer-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 6px;
+  position: relative;
+}
+
+.signoff-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.signoff-intro {
+  font-family: var(--font-serif-cormorant);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--color-subline);
+}
+
+.signoff-from {
+  font-family: var(--font-serif-cormorant);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-name);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.signature-line {
+  width: 130px;
+  height: 0.75px;
+  background-color: var(--color-divider);
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.page2-corner-sticker-wrap {
+  position: absolute;
+  right: -8px;
+  bottom: -4px;
+  z-index: 5;
+}
+
+.page2-sticker-img {
+  max-height: 120px;
+  max-width: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(40, 30, 20, 0.16));
+}
+
+.page2-micro-foot {
+  text-align: center;
+  font-family: var(--font-sans-editorial);
+  font-size: 6px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-footer);
+  margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   INSIDE LEFT (THEYYAM PERFORMER) LAYOUT
+   -------------------------------------------------------------------------- */
+
+.theyyam-content-layout {
+  position: absolute;
+  inset: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  padding: 16px 20px 14px 20px;
+  text-align: center;
+}
+
+.theyyam-header-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.theyyam-title-text {
+  font-family: var(--font-serif-cinzel);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--color-eyebrow);
+  text-transform: uppercase;
+}
+
+.theyyam-sticker-showcase {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.theyyam-temple-arch {
+  position: absolute;
+  width: 185px;
+  height: 250px;
+  background: var(--bg-arch);
+  border: 1px solid var(--border-arch);
+  border-radius: 100px 100px 12px 12px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.theyyam-sticker-img {
+  position: relative;
+  z-index: 5;
+  max-height: 245px;
+  max-width: 215px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(30, 20, 15, 0.18));
+}
+
+.theyyam-blessing-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  max-width: 380px;
+}
+
+.theyyam-blessing-quote {
+  font-family: var(--font-serif-cormorant);
+  font-style: italic;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-subline);
+  letter-spacing: 0.015em;
+}
+
+.theyyam-personal-line {
+  font-family: var(--font-serif-cormorant);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-name);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (DESKTOP, TABLET & SMARTPHONES)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1300px) {
+  .card-desk-surface {
+    transform: scale(0.88);
+  }
+}
+
+@media (max-width: 1050px) {
+  .card-desk-surface {
+    transform: scale(0.76);
+  }
+}
+
+@media (max-width: 850px) {
+  :root {
+    --card-mobile-scale: calc(min(90vw, 340px) / 680);
+  }
+
+  .presentation-container {
+    padding: 16px 8px;
+  }
+  
+  /* Sized bounding box matches exact viewport proportion */
+  .card-desk-surface {
+    width: min(90vw, 340px);
+    height: calc(min(90vw, 340px) * 0.709);
+    position: relative;
+    padding: 0;
+    margin: 10px auto;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Center and scale mathematically with zero layout overflow */
+  .card-3d-book {
+    position: relative;
+    flex-shrink: 0;
+    width: 680px !important;
+    height: 482px !important;
+    margin: 0 auto;
+    transform: scale(var(--card-mobile-scale));
+    transform-origin: center center;
+  }
+  
+  /* On mobile portrait when open: scale smoothly so both pages fit side-by-side */
+  .card-3d-book.open {
+    transform: translateX(calc(var(--card-width) / 2)) scale(calc(var(--card-mobile-scale) * 0.52)) !important;
+    transform-origin: center center;
+  }
+  
+  .flip-hint-badge {
+    padding: 6px 14px;
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Mobile Landscape Orientation */
+@media (max-height: 520px) and (orientation: landscape) {
+  .recipient-gift-header {
+    display: none !important;
+  }
+  
+  .flip-hint-badge {
+    margin-bottom: 4px;
+    padding: 3px 10px;
+    font-size: 10px;
+  }
+  
+  .card-desk-surface {
+    transform: scale(0.62);
+    margin: 0;
+  }
+  
+  .card-3d-book.open {
+    transform: translateX(340px) scale(0.72) !important;
+    transform-origin: center center;
+  }
+}

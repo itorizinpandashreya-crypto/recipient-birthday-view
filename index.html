@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 27th Birthday, Pratyak ❤️</title>
+  
+  <!-- Modern Luxury & Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-warm-ivory font-cormorant">
+
+  <!-- Celebration Confetti Canvas -->
+  <canvas id="celebration-confetti" class="celebration-confetti"></canvas>
+
+  <!-- Main Presentation Container -->
+  <main class="presentation-container">
+
+    <!-- Romantic Header Banner -->
+    <header class="recipient-gift-header">
+      <span class="gift-eyebrow">✨ A SPECIAL 27TH CELEBRATION FOR PRATYAK ✨</span>
+      <h1 class="gift-title">Happy Birthday, My Love</h1>
+      <p class="gift-subtitle">Created with all my heart by Shreya &bull; Tap the card to open</p>
+    </header>
+
+    <!-- 3D Interactive Card Scene -->
+    <section class="card-3d-scene">
+      
+      <!-- Tap / Click Hint Badge -->
+      <div class="flip-hint-badge" onclick="toggleBookFold()" id="flip-hint-badge">
+        <span class="hint-sparkle">✨</span>
+        <span id="flip-hint-label">Click anywhere on card to OPEN</span>
+        <span class="hint-key">[ Tap / Click ]</span>
+      </div>
+
+      <!-- Desk Surface Wrapper -->
+      <div class="card-desk-surface">
+        
+        <!-- 3D Folded Card Book -->
+        <div class="card-3d-book" id="card-3d-book" onclick="toggleBookFold()">
+          
+          <!-- INSIDE LEFT PAGE (Facing letter when open): Ornate Theyyam Blessing -->
+          <div class="card-book-inside-left" id="card-book-inside-left">
+            <div class="card-texture-overlay"></div>
+            <div class="border-frame-outer">
+              <div class="border-frame-inner">
+                <div class="corner-flourish tl"></div>
+                <div class="corner-flourish tr"></div>
+                <div class="corner-flourish bl"></div>
+                <div class="corner-flourish br"></div>
+              </div>
+            </div>
+            <div class="theyyam-content-layout">
+              <div class="theyyam-header-area">
+                <div class="theyyam-title-text">MAY YOUR 27TH BE BLESSED WITH ABUNDANCE</div>
+              </div>
+              <div class="theyyam-sticker-showcase">
+                <div class="theyyam-temple-arch"></div>
+                <img src="sticker_theyyam.png" alt="Ornate Theyyam Performer Sticker" class="theyyam-sticker-img">
+              </div>
+              <div class="theyyam-blessing-area">
+                <div class="theyyam-blessing-quote">&ldquo;May this year surround you with fearless courage, radiant prosperity and boundless joy.&rdquo;</div>
+                <div class="theyyam-personal-line">I am always proud of you, sweetie <span class="heart-symbol">&#9829;</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INSIDE RIGHT PAGE: Personal Letter & Couple Keepsake Photo -->
+          <div class="card-book-inside-right" id="leaf-inside-target">
+            <div class="card-texture-overlay"></div>
+            <div class="border-frame-outer">
+              <div class="border-frame-inner">
+                <div class="corner-flourish tl"></div>
+                <div class="corner-flourish tr"></div>
+                <div class="corner-flourish bl"></div>
+                <div class="corner-flourish br"></div>
+              </div>
+            </div>
+
+            <div class="message-content-layout">
+              <div class="message-header-area">
+                <div class="message-heading">A little something for you&hellip;</div>
+                <div class="flourish-divider">
+                  <span class="star-accent">✦</span>
+                  <span class="rule-line"></span>
+                  <span class="heart-symbol">♥</span>
+                  <span class="rule-line"></span>
+                  <span class="star-accent">✦</span>
+                </div>
+              </div>
+
+              <div class="stationery-writing-area">
+                <div class="stationery-lines-faint" id="stationery-lines">
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                  <span class="paper-line"></span>
+                </div>
+                <div class="typed-letter-content" id="disp-typed-letter">Happy Birthday, my love! ❤️ Wishing you all the happiness, success and love you deserve. Even though I’m not there with you physically, I’m always with you in my heart. Soon, we’ll celebrate every little moment and every special occasion together. I want to see you become the best version of yourself and I truly believe you will. Keep smiling always, baby, because you have the most beautiful smile, and you look the best when you smile. Never stop being you. I love you so much! ❤️</div>
+              </div>
+
+              <div class="message-footer-area">
+                <div class="signoff-group">
+                  <span class="signoff-intro">Forever &amp; always,</span>
+                  <span class="signoff-from">FROM UR SHREYA <span class="heart-symbol">&#9829;</span></span>
+                  <div class="signature-line"></div>
+                </div>
+
+                <div class="page2-corner-sticker-wrap">
+                  <img src="sticker_shrp_photo.png" alt="Shreya & Pratyak Couple Sticker" class="page2-sticker-img">
+                </div>
+              </div>
+
+              <div class="page2-micro-foot">
+                <span>HAPPY 27TH BIRTHDAY, PRATYAK &bull; ALL MY LOVE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FRONT FOLDING FLAP (Swings open 180 degrees) -->
+          <div class="card-book-front-flap" id="book-front-flap">
+            
+            <!-- OUTER FRONT FACE: Cover with Balloon Doodle & Solo Sticker -->
+            <div class="front-face" id="leaf-cover-target">
+              <div class="card-texture-overlay"></div>
+              
+              <div class="border-frame-outer">
+                <div class="border-frame-inner">
+                  <div class="corner-flourish tl"></div>
+                  <div class="corner-flourish tr"></div>
+                  <div class="corner-flourish bl"></div>
+                  <div class="corner-flourish br"></div>
+                </div>
+              </div>
+
+              <!-- Cute "27" Numbered Balloon Doodle in Upper Right Corner -->
+              <div class="balloon-doodle-container" id="cover-balloon-doodle">
+                <svg width="68" height="106" viewBox="0 0 150 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M75 16C42 16 22 40 22 76C22 110 50 138 71 142L68 149H82L79 142C100 138 128 110 128 76C128 40 108 16 75 16Z" 
+                        fill="#FAF5ED" stroke="#1E1B1A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M42 42C52 28 66 24 76 24" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round"/>
+                  <circle cx="39" cy="54" r="2.8" fill="#FFFFFF"/>
+                  <text x="75" y="90" font-family="'Cormorant Garamond', Georgia, serif" font-size="44" font-weight="700" fill="#1E1B1A" text-anchor="middle" letter-spacing="1">27</text>
+                  <path d="M104 46L106.5 51L111.5 53.5L106.5 56L104 61L101.5 56L96.5 53.5L101.5 51Z" fill="#C5A059"/>
+                  <path d="M75 149C73 165 62 174 67 184C72 194 88 189 86 200C84 210 72 213 74 223" 
+                        stroke="#1E1B1A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <path d="M74 223C74 223 70 219 67 221C64 223 66 227 74 231C82 227 84 223 81 221C78 219 74 223 74 223Z" fill="#7D1D2C"/>
+                </svg>
+              </div>
+
+              <!-- Cover Content Layout -->
+              <div class="cover-content-layout">
+                
+                <!-- Left Column: Typography -->
+                <div class="cover-text-column">
+                  <div class="eyebrow-tag">A CELEBRATION OF TWENTY-SEVEN</div>
+                  
+                  <div class="main-title-block">
+                    <div class="greeting-prefix">HAPPY BIRTHDAY,</div>
+                    <h1 class="focal-name">PRATYAK</h1>
+                  </div>
+
+                  <div class="romantic-divider">
+                    <span class="rule-line"></span>
+                    <span class="heart-symbol">♥</span>
+                    <span class="rule-line"></span>
+                  </div>
+
+                  <p class="supporting-line">Here's to 27 and everything beautiful ahead.</p>
+
+                  <div class="celestial-detail">
+                    <span class="star-accent">✦</span>
+                    <span class="star-accent small">✧</span>
+                    <span class="star-accent">✦</span>
+                  </div>
+
+                  <div class="cover-footer-note">
+                    <span>XXVII &bull; WITH ALL MY LOVE</span>
+                  </div>
+                </div>
+
+                <!-- Right Column: Visual Focal Point (Sticker & Arch) -->
+                <div class="cover-visual-column">
+                  <div class="editorial-arch"></div>
+
+                  <div class="sticker-container">
+                    <img src="sticker_pratyak_solo.png" alt="Pratyak Birthday Sticker" class="sticker-img solo-sticker">
+                  </div>
+
+                  <div class="sticker-caption">
+                    <span>PRATYAK &bull; OCTOBER 2026</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- INNER BACK FACE (Back of the front cover): Theyyam Blessing -->
+            <div class="back-face" id="leaf-back-target">
+              <div class="card-texture-overlay"></div>
+              <div class="border-frame-outer">
+                <div class="border-frame-inner">
+                  <div class="corner-flourish tl"></div>
+                  <div class="corner-flourish tr"></div>
+                  <div class="corner-flourish bl"></div>
+                  <div class="corner-flourish br"></div>
+                </div>
+              </div>
+              <div class="theyyam-content-layout">
+                <div class="theyyam-header-area">
+                  <div class="theyyam-title-text">MAY YOUR 27TH BE BLESSED WITH ABUNDANCE</div>
+                </div>
+                <div class="theyyam-sticker-showcase">
+                  <div class="theyyam-temple-arch"></div>
+                  <img src="sticker_theyyam.png" alt="Ornate Theyyam Performer Sticker" class="theyyam-sticker-img">
+                </div>
+                <div class="theyyam-blessing-area">
+                  <div class="theyyam-blessing-quote">&ldquo;May this year surround you with fearless courage, radiant prosperity and boundless joy.&rdquo;</div>
+                  <div class="theyyam-personal-line">I am always proud of you, sweetie <span class="heart-symbol">&#9829;</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
